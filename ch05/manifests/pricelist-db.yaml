@@ -39,6 +39,11 @@ spec:
         - mountPath: /var/lib/mysql
           name: mysql-db
           subPath: mysql
+        startupProbe:
+          tcpSocket:
+            port: 3306
+          periodSeconds: 5
+          failureThreshold: 30
         livenessProbe:
           tcpSocket:
             port: 3306
